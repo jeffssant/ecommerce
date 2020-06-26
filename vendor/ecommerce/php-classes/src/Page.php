@@ -14,9 +14,7 @@ class Page{
 
     public function __construct($opts = array()) // get header data
     {
-
-        $this->options = array_merge($this->defaults ,  $opts);        
-
+        // Configurações padrão
         // Config RainTPL
         $config = array(
             "tpl_dir"       => $_SERVER['DOCUMENT_ROOT']."/ecommerce/views/",
@@ -30,8 +28,9 @@ class Page{
         $this->tpl = new Tpl;
         
         
-
-        $this->setData($this->options['data']);        
+        
+        $this->options = array_merge($this->defaults ,  $opts);  // Se houver opts prevalece
+        $this->setData($this->options['data']);   //função para pegar as variaves - linha 51
 
         $this->tpl->draw('header');
         
@@ -39,10 +38,10 @@ class Page{
     }
 
 
-
     public function setTpl($name, $data = array(), $returnHtml = false)
     {
-        $this->setData($data);     
+        // Setar o conteudo do Body.
+        $this->setData($data);     //Metodo para pegar as variaves - linha 51
 
         return $this->tpl->draw($name, $returnHtml);   
     }
@@ -50,6 +49,7 @@ class Page{
     
     private function setData($data = array()) // Get page data
     {
+        // Pegar as variaveis vinda do Index via rota
         foreach ($this->options['data'] as $key => $value) {
             $this->tpl->assign($key, $value);
          }
