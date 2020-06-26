@@ -21,8 +21,7 @@ class Page{
             "cache_dir"     => $_SERVER['DOCUMENT_ROOT']."/views-cache/",
             "debug"         => false // set to false to improve the speed
            );
-
-           var_dump( $_SERVER['DOCUMENT_ROOT'].$tpl_dir);
+           
         Tpl::configure( $config );
 
         // create the Tpl object
