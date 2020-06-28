@@ -9,6 +9,8 @@ class Page{
     private $tpl;
     private $options = [];
     private $defaults = [
+        'header' => true,
+        'footer' => false,
         'data' => []
     ];
 
@@ -32,7 +34,8 @@ class Page{
         $this->options = array_merge($this->defaults ,  $opts);  // Se houver opts prevalece
         $this->setData($this->options['data']);   //função para pegar as variaves - linha 51
 
-        $this->tpl->draw('header');
+       if($this->options["header"] === true)  $this->tpl->draw('header');
+       
         
 
     }
@@ -56,6 +59,6 @@ class Page{
     }
 
     public function __destruct(){
-        $this->tpl->draw('footer'); // get footer data
+        if($this->options["header"] === true)  $this->tpl->draw('footer'); // get footer data
     }
 }
