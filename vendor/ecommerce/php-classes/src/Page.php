@@ -43,6 +43,7 @@ class Page{
 
     public function setTpl($name, $data = array(), $returnHtml = false)
     {
+        
         // Setar o conteudo do Body.
         $this->setData($data);     //Metodo para pegar as variaves - linha 51
 
@@ -53,7 +54,7 @@ class Page{
     private function setData($data = array()) // Get page data
     {
         // Pegar as variaveis vinda do Index via rota
-        foreach ($this->options['data'] as $key => $value) {
+        foreach ($data as $key => $value) {
             $this->tpl->assign($key, $value);
          }
     }
