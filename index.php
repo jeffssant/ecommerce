@@ -190,17 +190,11 @@ $app->post('/admin/forgot/reset', function() {
 	$user->get((int)$forgot["iduser"]);
 
 	$user->setPassword($_POST["password"]);
-
-
-
 	$page = new PageAdmin([
 		"header" => false,
 		"footer" => false
 	]);
-	
-	
-
-	
+		
 	$page->setTpl("forgot-reset-success");
 	
 });
