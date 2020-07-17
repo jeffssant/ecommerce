@@ -8,65 +8,80 @@ use \Ecommerce\Mailer;
 
 
 
-class Category extends Model{ 
+class Category extends Model {
 
-    public static function listAll()
-    {
-        $sql = new Sql();
-        return $sql->select("SELECT * FROM tb_categories ORDER BY descategory");
-    }
+	public static function listAll()
+	{
 
-    public function save()
-    {
-        $sql = new Sql();
+		$sql = new Sql();
+
+		return $sql->select("SELECT * FROM tb_categories ORDER BY descategory");
+
+	}
+
+	public function save()
+	{
+
+		$sql = new Sql();
 
 		$results = $sql->select("CALL sp_categories_save(:idcategory, :descategory)", array(
 			":idcategory"=>$this->getidcategory(),
-			":descategory"=>$this->getdescategory(),			
+			":descategory"=>$this->getdescategory()
 		));
 
-        $this->setData($results[0]);
-        Category::updateFile();
+		$this->setData($results[0]);
 
-    }
+		Category::updateFile();
 
-    public function get($idcategoty)
-    {
-        $sql = new Sql();
-        $results =  $sql->select("SELECT * FROM tb_categories WHERE idcategory = :idcategory ORDER BY descategory",[
-            ":idcategory"=>$idcategoty,
-        ]);
+	}
 
-        $this->setData($results[0]);
-    }
+	public function get($idcategory)
+	{
 
-    public function delete() 
-    {
-        $sql = new Sql();
-        $sql->query("DELETE FROM tb_categories WHERE idcategory = :idcategory",[
-            ":idcategory"=>$this->getidcategory(),
-        ]);
+		$sql = new Sql();
 
-        Category::updateFile();
-    }  
-    
-    public static function updateFile() 
-    {
-       $categories = Category::listAll();
+		$results = $sql->select("SELECT * FROM tb_categories WHERE idcategory = :idcategory", [
+			':idcategory'=>$idcategory
+		]);
 
-       $html = [];
+		$this->setData($results[0]);
 
-       foreach ($categories as $row) {
-           array_push($html, '<li><a href="/categories/'.$row['idcategory'].'">'.$row['descategory'].'</a></li>');
-           file_put_contents($_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR . "views" . DIRECTORY_SEPARATOR . "categories-menu.html", implode('', $html) );
-       }
-    }
+	}
 
-    public function getProducts($related = true)
-    {
-        $sql = new Sql();
-        
-        if ($related === true) {
+	public function delete()
+	{
+
+		$sql = new Sql();
+
+		$sql->query("DELETE FROM tb_categories WHERE idcategory = :idcategory", [
+			':idcategory'=>$this->getidcategory()
+		]);
+
+		Category::updateFile();
+
+	}
+
+	public static function updateFile()
+	{
+
+		$categories = Category::listAll();
+
+		$html = [];
+
+		foreach ($categories as $row) {
+			array_push($html, '<li><a href="/categories/'.$row['idcategory'].'">'.$row['descategory'].'</a></li>');
+		}
+
+		file_put_contents($_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR . "views" . DIRECTORY_SEPARATOR . "categories-menu.html", implode('', $html));
+
+	}
+
+	public function getProducts($related = true)
+	{
+
+		$sql = new Sql();
+
+		if ($related === true) {
 
 			return $sql->select("
 				SELECT * FROM tb_products WHERE idproduct IN(
@@ -86,16 +101,17 @@ class Category extends Model{
 					SELECT a.idproduct
 					FROM tb_products a
 					INNER JOIN tb_productscategories b ON a.idproduct = b.idproduct
-					WHERE b.idcategory = 1
+					WHERE b.idcategory = :idcategory
 				);
 			", [
 				':idcategory'=>$this->getidcategory()
 			]);
 
 		}
-    }
 
-    public function getProductsPage($page = 1, $itemsPerPage = 8)
+	}
+
+	public function getProductsPage($page = 1, $itemsPerPage = 8)
 	{
 
 		$start = ($page - 1) * $itemsPerPage;
@@ -123,7 +139,7 @@ class Category extends Model{
 
 	}
 
-    public function addProduct(Product $product)
+	public function addProduct(Product $product)
 	{
 
 		$sql = new Sql();
