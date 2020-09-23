@@ -172,6 +172,7 @@ class User extends Model {
 
 		$sql = new Sql();
 
+		
 		$results = $sql->select("CALL sp_usersupdate_save(:iduser, :desperson, :deslogin, :despassword, :desemail, :nrphone, :inadmin)", array(
 			":iduser"=>$this->getiduser(),
 			":desperson"=>utf8_decode($this->getdesperson()),
@@ -181,9 +182,10 @@ class User extends Model {
 			":nrphone"=>$this->getnrphone(),
 			":inadmin"=>$this->getinadmin()
 		));
-
+		
+		
 		$this->setData($results[0]);		
-
+		$_SESSION[User::SESSION] = $this->getValues();
 	}
 
 	public function delete()
@@ -291,7 +293,7 @@ class User extends Model {
 			    AND
 			    a.dtrecovery IS NULL
 			    AND
-			    DATE_ADD(a.dtregister, INTERVAL 1 HOUR) >= NOW();
+			    DATE_ADD(a.dtregister, INTERVAL 4 HOUR) >= NOW();
 		", array(
 			":idrecovery"=>$idrecovery
 		));
