@@ -186,6 +186,8 @@ $app->post("/checkout", function(){
 
 	User::verifyLogin(false);
 
+
+
 	if (!isset($_POST['zipcode']) || $_POST['zipcode'] === '') {
 		Address::setMsgError("Informe o CEP.");
 		header('Location: /checkout');
@@ -237,6 +239,8 @@ $app->post("/checkout", function(){
 
 	$cart->getCalculateTotal();
 
+		/*
+
 	$order = new Order();
 
 	$order->setData([
@@ -259,8 +263,9 @@ $app->post("/checkout", function(){
 		header("Location: /order/".$order->getidorder()."/paypal");
 		break;
 
-	}
+	}*/
 
+	echo "<h1>teste </h1>";
 	exit;
 
 });
