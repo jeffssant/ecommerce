@@ -68,7 +68,7 @@ desired effect
     <!-- Header Navbar -->
     <nav class="navbar navbar-static-top" role="navigation">
       <!-- Sidebar toggle button-->
-      <a href= "#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+      <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
         <span class="sr-only">Toggle navigation</span>
       </a>
       <!-- Navbar Right Menu -->
@@ -256,20 +256,12 @@ desired effect
       <ul class="sidebar-menu">
         <li class="header">HEADER</li>
         <!-- Optionally, you can add icons to the links -->
-        <li ><a href="/admin/users"><i class="fa fa-link"></i> <span>Usuários</span></a></li>
+        <li><a href="/admin/users"><i class="fa fa-users"></i> <span>Usuários</span></a></li>
         <li><a href="/admin/categories"><i class="fa fa-link"></i> <span>Categorias</span></a></li>
         <li><a href="/admin/products"><i class="fa fa-link"></i> <span>Produtos</span></a></li>
-        <li class="treeview">
-          <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="#">Link in level 2</a></li>
-            <li><a href="#">Link in level 2</a></li>
-          </ul>
-        </li>
+        <li><a href="/admin/orders"><i class="fa fa-shopping-cart"></i> <span>Pedidos</span></a></li>
+
+        
       </ul>
       <!-- /.sidebar-menu -->
     </section>
