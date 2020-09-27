@@ -32,7 +32,7 @@
                 Rua Ademar Saraiva Leão, 234 - Alvarenga<br>
                 São Bernardo do Campo - SP<br>
                 Telefone: (11) 3171-3080<br>
-                E-mail: suporte@hcode.com.br
+                E-mail: santana.jeff@gmail.com
             </address>
             </div>
             <!-- /.col -->

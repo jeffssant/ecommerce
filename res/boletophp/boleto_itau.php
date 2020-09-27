@@ -21,13 +21,13 @@ $dadosboleto["endereco1"] = "Av. Paulista, 500";
 $dadosboleto["endereco2"] = "Cidade - Estado -  CEP: 00000-000";
 
 // INFORMACOES PARA O CLIENTE
-$dadosboleto["demonstrativo1"] = "Pagamento de Compra na Loja Hcode E-commerce";
+$dadosboleto["demonstrativo1"] = "Pagamento de Compra na Loja  E-commerce";
 $dadosboleto["demonstrativo2"] = "Taxa bancária - R$ 0,00";
 $dadosboleto["demonstrativo3"] = "";
 $dadosboleto["instrucoes1"] = "- Sr. Caixa, cobrar multa de 2% após o vencimento";
 $dadosboleto["instrucoes2"] = "- Receber até 10 dias após o vencimento";
-$dadosboleto["instrucoes3"] = "- Em caso de dúvidas entre em contato conosco: suporte@hcode.com.br";
-$dadosboleto["instrucoes4"] = "&nbsp; Emitido pelo sistema Projeto Loja Hcode E-commerce - www.hcode.com.br";
+$dadosboleto["instrucoes3"] = "- Em caso de dúvidas entre em contato conosco: contato@contato.com.br";
+$dadosboleto["instrucoes4"] = "&nbsp; Emitido pelo sistema Projeto Loja  Ecommerce";
 
 // DADOS OPCIONAIS DE ACORDO COM O BANCO OU CLIENTE
 $dadosboleto["quantidade"] = "";

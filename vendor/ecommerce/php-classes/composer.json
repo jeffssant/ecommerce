@@ -1,13 +1,13 @@
 {
-    "name": "hcodebr/php-classes",
+    "name": "ecommerce/php-classes",
     "minimum-stability": "dev",
     "type": "library",
     "description": "Classes PHP",
-    "homepage": "https://github.com/hcodebr/php-classes",
+    "homepage": "https://github.com/jeffssant/",
     "authors": [
         {
-            "name": "Hcode Treinamentos",
-            "email": "suporte@hcode.com.br"
+            "name": "Jefferson Sant' Ana",
+            "email": "santana.jeff@gmail.com"
         }
     ],
     "require": {
@@ -16,7 +16,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Hcode\\": "vendor\\hcodebr\\php-classes\\src"
+            "Ecommerce\\": "vendor\\ecommerce\\php-classes\\src"
         }
     }
 }
