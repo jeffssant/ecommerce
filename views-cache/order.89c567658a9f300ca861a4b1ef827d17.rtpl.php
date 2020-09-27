@@ -28,7 +28,7 @@
             <div class="col-sm-4 invoice-col">
             De
             <address>
-                <strong>HCODE</strong><br>
+                <strong>E-commerce</strong><br>
                 Rua Ademar Saraiva Leão, 234 - Alvarenga<br>
                 São Bernardo do Campo - SP<br>
                 Telefone: (11) 3171-3080<br>

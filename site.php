@@ -329,7 +329,7 @@ $app->get("/boleto/:idorder", function($idorder){
 	$dadosboleto["instrucoes1"] = "- Sr. Caixa, cobrar multa de 2% após o vencimento";
 	$dadosboleto["instrucoes2"] = "- Receber até 10 dias após o vencimento";
 	$dadosboleto["instrucoes3"] = "- Em caso de dúvidas entre em contato conosco: conato@contato.com.br";
-	$dadosboleto["instrucoes4"] = "&nbsp; Emitido pelo sistema Projeto Loja Hcode E-commerce ";
+	$dadosboleto["instrucoes4"] = "&nbsp; Emitido pelo sistema  E-commerce ";
 
 	// DADOS OPCIONAIS DE ACORDO COM O BANCO OU CLIENTE
 	$dadosboleto["quantidade"] = "";
