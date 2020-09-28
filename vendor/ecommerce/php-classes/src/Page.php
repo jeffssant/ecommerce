@@ -1,11 +1,11 @@
-<?php 
+<?php
 
 namespace Ecommerce;
+
 use Rain\Tpl;
 
-
-class Page{
-
+class Page
+{
     private $tpl;
     private $options = [];
     private $defaults = [
@@ -14,30 +14,29 @@ class Page{
         'data' => []
     ];
 
-    public function __construct($opts = array() , $tpl_dir = "/views/") // get header data
+    public function __construct($opts = array(), $tpl_dir = "/views/") // get header data
     {
         // Configurações padrão
-        // Config RainTPL      
+        // Config RainTPL
         $config = array(
             "tpl_dir"       => $_SERVER['DOCUMENT_ROOT'].$tpl_dir,
             "cache_dir"     => $_SERVER['DOCUMENT_ROOT']."/views-cache/",
             "debug"         => false // set to false to improve the speed
            );
            
-        Tpl::configure( $config );
+        Tpl::configure($config);
 
         // create the Tpl object
         $this->tpl = new Tpl;
         
         
         
-        $this->options = array_merge($this->defaults ,  $opts);  // Se houver opts prevalece
+        $this->options = array_merge($this->defaults, $opts);  // Se houver opts prevalece
         $this->setData($this->options['data']);   //função para pegar as variaves - linha 51
 
-       if($this->options["header"] === true)  $this->tpl->draw('header');
-       
-        
-
+       if ($this->options["header"] === true) {
+           $this->tpl->draw('header');
+       }
     }
 
 
@@ -47,7 +46,7 @@ class Page{
         // Setar o conteudo do Body.
         $this->setData($data);     //Metodo para pegar as variaves - linha 51
 
-        return $this->tpl->draw($name, $returnHtml);   
+        return $this->tpl->draw($name, $returnHtml);
     }
 
     
@@ -56,10 +55,13 @@ class Page{
         // Pegar as variaveis vinda do Index via rota
         foreach ($data as $key => $value) {
             $this->tpl->assign($key, $value);
-         }
+        }
     }
 
-    public function __destruct(){
-        if($this->options["header"] === true)  $this->tpl->draw('footer'); // get footer data
+    public function __destruct()
+    {
+        if ($this->options["header"] === true) {
+            $this->tpl->draw('footer');
+        } // get footer data
     }
 }
