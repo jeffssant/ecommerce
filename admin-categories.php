@@ -122,7 +122,7 @@ $app->get('/admin/categories/:idcategory/products/:idproduct/add', function ($id
     $category->addProduct($product);
 
     header("Location: /admin/categories/".$idcategory."/products");
-    exit();
+    exit(); 
 });
 
 $app->get('/admin/categories/:idcategory/products/:idproduct/remove', function ($idcategory, $idproduct) {
